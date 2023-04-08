@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  app:
+    image: caddy/caddy:2-alpine
+    container_name: caddy
+    ports:
+      - "80:80"
+    volumes:
+      - .:/opt/app
+      - ./docker/caddy/8.2/Caddyfile:/etc/caddy/Caddyfile:ro
+    networks:
+      - fluffy
+
+  php:
+    build:
+      dockerfile: ./docker/php/8.2/Dockerfile
+      context: .
+    container_name: php
+    volumes:
+      - .:/opt/app
+    ports:
+      - "9000:9000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - fluffy
+
+networks:
+    fluffy:

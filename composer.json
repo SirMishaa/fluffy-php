@@ -1,0 +1,19 @@
+{
+    "name": "sirmishaa/fluffyphp",
+    "description": "A basic framework written in PHP",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sir Mishaa",
+            "email": "mishaa.pro@proton.me"
+        }
+    ],
+    "require": {
+        "spatie/ignition": "^1.4"
+    }
+}
